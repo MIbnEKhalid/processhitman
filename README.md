@@ -1,5 +1,5 @@
 # Process Hitman
-Use Alt+F5 to kill any process, more efficiently than Alt+F4
+Use Windows Key + Alt + F5 to kill any process, more efficiently than Alt+F4
 
 *Have you ever been in a situation where an application stops responding, gets stuck in a loading screen, or is just annoying. You immediately press Alt+F4, but the application doesn't shut down?*
 
@@ -8,18 +8,13 @@ Use Alt+F5 to kill any process, more efficiently than Alt+F4
 ### Note: If the pre-built application from the release does not work, you can download the repository and run `Compile.bat`. Ensure you have `g++` installed, and it should work seamlessly.
 
 
-
-
-
-
-
 ## Purpose
 Some programs and games are annoying to close once opened. Some games I play don't work with Alt+F4, and I am too lazy to go back through tons of menus to exit a game. There are also some apps that have long splash screens, so if you accidentally open one of them, you have to either wait to close it, or use Task Manager.
 
 I built this because I needed a program like this, nothing groundbreaking, but I hope it helps someone out.
 
 ## How it works
-It's very simple, if you press Alt + F5, it will kill the current process. This will not show any "Save unsaved changes" menu, it will not wait for the application to save and exit. It will kill the process, hence the name, Process Hitman.
+It's very simple, if you press Windows Key + Alt + F5, it will kill the current process. This will not show any "Save unsaved changes" menu, it will not wait for the application to save and exit. It will kill the process, hence the name, Process Hitman.
 
 Built using C++ and the Windows API.
 
