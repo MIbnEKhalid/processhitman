@@ -5,7 +5,7 @@ Use Windows Key + Alt + F5 to kill any process, more efficiently than Alt+F4
 
 **Process Hitman will ensure the process is killed.**
 
-### Note: If the pre-built application from the release does not work, you can download the repository and run `compile.bat`. Ensure you have `g++` installed, and it should work seamlessly.
+#### Note: If the pre-built application from the release does not work, you can download the repository and run `compile.bat` or `compile-linux.sh`. Ensure you have `g++` installed, and it should work seamlessly.
 
 **Credit**: **[github.com/zyapguy/processhitman](https://github.com/zyapguy/processhitman/tree/main)**
 
@@ -73,12 +73,32 @@ Built using C++ and the Windows API.
 Contributors are welcome to fork the repository or send pull requests directly to this repository. I don't intend on releasing any updates to this software (except for bug fixes for major security issues), as its purpose is quite simple.  
 
 ## Building
+#### For Window:
+
 You should ideally use the compile.bat script included in the repository. You need the G++ compiler, but you can probably use other compilers as well. I used the MinGW G++ compiler.
 
 ```shell
 compile.bat
 ```
+#### For Linux:
+1. **Make the compile script executable:** First, make sure that the `compile-linux.sh` script has executable permissions:
+   ```bash
+   chmod +x compile-linux.sh
+   ```
+   
+2. **Run the compile script:** After granting execute permissions, run the script to install all necessary packages and compile the `hitmanlinux.cpp` file:
+   ```bash
+   ./compile-linux.sh
+   ```
+   The script will:
+   - Check and install the required packages (`gcc`, `pkg-config`, `build-essential`, `libx11-dev`, `libayatana-appindicator3-dev`).
+   - Compile the source code into the `hitmanLinux` executable.
+   
 
+3. **Run the application:** After the compilation completes successfully, you will have an executable named `hitmanLinux` in the same directory. You can now run the app:
+   ```bash
+   ./hitmanLinux
+   ```   
 ## License
 
 MIT License
