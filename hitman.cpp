@@ -134,14 +134,14 @@ void RemoveFromStartup()
 void EnableHook(HWND hwndButton)
 {
     buttonToggled = true;
-    SetWindowText(hwndButton, "Disable");
+    SetWindowText(hwndButton, "Disable Process Hitman");
     hookEnabled = true;
 }
 
 void DisableHook(HWND hwndButton)
 {
     buttonToggled = false;
-    SetWindowText(hwndButton, "Enable");
+    SetWindowText(hwndButton, "Enable Process Hitman");
     hookEnabled = false;
 }
 
