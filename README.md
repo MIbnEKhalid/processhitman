@@ -8,10 +8,10 @@ Use Windows Key + Alt + F5 to kill any process, more efficiently than Alt+F4
 ### Note: If the pre-built application from the release does not work, you can download the repository and run `Compile.bat`. Ensure you have `g++` installed, and it should work seamlessly.
 
 ## What's New in This Forked Repo?
-The functionality remains the same, except that the original source code uses Alt + F5 to kill a process, while in this version, I have changed it to Windows Key + Alt + F5. This change was made because I have a few applications that use the Alt + F5 shortcut for different purposes.
+The functionality remains the same, except that the original source code uses Alt + F5 to kill a process, while in this version, I’ve modified it to Windows Key + Alt + F5. This change was made because I have a few applications that use Alt + F5 for other purposes. And There Is Little Bit Change in UI. Below is the code comparison:
 
-Original Code:
-`// global keyboard hook
+### Original Code:
+```cpp 
 LRESULT CALLBACK LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam)
 {
     if (nCode == HC_ACTION && hookEnabled)
@@ -31,17 +31,17 @@ LRESULT CALLBACK LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam)
 
     return CallNextHookEx(NULL, nCode, wParam, lParam);
 }
-`
+```
 
-Modified Code (My Version):
-`// global keyboard hook
+### Modified Code (My Version):
+```cpp
 LRESULT CALLBACK LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam)
 {
     if (nCode == HC_ACTION && hookEnabled)
     {
         if ((GetAsyncKeyState(VK_F5) & 0x8000) &&                                           // F5
             (GetAsyncKeyState(VK_MENU) & 0x8000) &&                                         // Alt
-            ((GetAsyncKeyState(VK_LWIN) & 0x8000) || (GetAsyncKeyState(VK_RWIN) & 0x8000))) // Windows key (either left or right)
+            ((GetAsyncKeyState(VK_LWIN) & 0x8000) || (GetAsyncKeyState(VK_RWIN) & 0x8000))) // Windows key 
         {
             DWORD processID = GetProcessIdOfActiveWindow();
             if (processID != 0)
@@ -53,7 +53,7 @@ LRESULT CALLBACK LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam)
 
     return CallNextHookEx(NULL, nCode, wParam, lParam);
 }
-`
+```
 
 
 ## Purpose
