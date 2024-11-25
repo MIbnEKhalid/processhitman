@@ -5,6 +5,14 @@ Use Alt+F5 to kill any process, more efficiently than Alt+F4
 
 **Process Hitman will ensure the process is killed.**
 
+Note: If the pre-built application from the release does not work, you can download the repository and run `Compile.bat`. Ensure you have `g++` installed, and it should work seamlessly.
+
+
+
+
+
+
+
 ## Purpose
 Some programs and games are annoying to close once opened. Some games I play don't work with Alt+F4, and I am too lazy to go back through tons of menus to exit a game. There are also some apps that have long splash screens, so if you accidentally open one of them, you have to either wait to close it, or use Task Manager.
 
