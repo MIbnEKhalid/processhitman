@@ -5,7 +5,7 @@ Use Alt+F5 to kill any process, more efficiently than Alt+F4
 
 **Process Hitman will ensure the process is killed.**
 
-Note: If the pre-built application from the release does not work, you can download the repository and run `Compile.bat`. Ensure you have `g++` installed, and it should work seamlessly.
+### Note: If the pre-built application from the release does not work, you can download the repository and run `Compile.bat`. Ensure you have `g++` installed, and it should work seamlessly.
 
 
 
