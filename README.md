@@ -5,11 +5,14 @@ Use Windows Key + Alt + F5 to kill any process, more efficiently than Alt+F4
 
 **Process Hitman will ensure the process is killed.**
 
-### Note: If the pre-built application from the release does not work, you can download the repository and run `Compile.bat`. Ensure you have `g++` installed, and it should work seamlessly.
+### Note: If the pre-built application from the release does not work, you can download the repository and run `compile.bat`. Ensure you have `g++` installed, and it should work seamlessly.
+
+**Credit**: **[github.com/zyapguy/processhitman](https://github.com/zyapguy/processhitman/tree/main)**
 
 ## What's New in This Forked Repo?
-The functionality remains the same, except that the original source code uses Alt + F5 to kill a process, while in this version, I’ve modified it to Windows Key + Alt + F5. This change was made because I have a few applications that use Alt + F5 for other purposes. And There Is Little Bit Change in UI. Below is the code comparison:
-
+The functionality remains the same, except that the **original source code uses** **`Alt + F5`** to kill a process, while in this version, **I’ve modified it to** **`Windows Key + Alt + F5`**. This change was made because I have a few applications that use Alt + F5 for other purposes. And There Is Little Bit Change in UI.
+**Note:** All changes are limited to the `hitman.cpp` script in the `Windows Version` of the repository. 
+Below is the code comparison:
 ### Original Code:
 ```cpp 
 LRESULT CALLBACK LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam)
