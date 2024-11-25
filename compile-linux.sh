@@ -1,16 +1,16 @@
 OUTPUT="hitmanLinux"
 SOURCE="hitmanLinux.cpp"
 
-REQUIRED_PACKAGES=("gcc" "pkg-config" "base-devel" "libx11" "libayatana-appindicator")
+REQUIRED_PACKAGES=("gcc" "pkg-config" "build-essential" "libx11-dev" "libayatana-appindicator3-dev")
 
 check_and_install_packages() {
     echo "Checking for required packages..."
     for PACKAGE in "${REQUIRED_PACKAGES[@]}"; do
-        if ! pacman -Qi $PACKAGE &> /dev/null; then
+        if ! dpkg -s "$PACKAGE" &> /dev/null; then
             echo "Missing package: $PACKAGE"
             echo "Installing $PACKAGE..."
-            sudo pacman -Syu --noconfirm
-            sudo pacman -S --noconfirm "$PACKAGE"
+            sudo apt update
+            sudo apt install -y "$PACKAGE"
             if [ $? -ne 0 ]; then
                 echo "Failed to install $PACKAGE. Please check your package manager."
                 exit 1
