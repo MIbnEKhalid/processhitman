@@ -7,6 +7,54 @@ Use Windows Key + Alt + F5 to kill any process, more efficiently than Alt+F4
 
 ### Note: If the pre-built application from the release does not work, you can download the repository and run `Compile.bat`. Ensure you have `g++` installed, and it should work seamlessly.
 
+## What's New in This Forked Repo?
+The functionality remains the same, except that the original source code uses Alt + F5 to kill a process, while in this version, I have changed it to Windows Key + Alt + F5. This change was made because I have a few applications that use the Alt + F5 shortcut for different purposes.
+
+Original Code:
+`// global keyboard hook
+LRESULT CALLBACK LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam)
+{
+    if (nCode == HC_ACTION && hookEnabled)
+    {
+        if (GetAsyncKeyState(VK_F5) & 0x8000)
+        {
+            if (GetAsyncKeyState(VK_MENU) & 0x8000)
+            {
+                DWORD processID = GetProcessIdOfActiveWindow();
+                if (processID != 0)
+                {
+                    KillProcess(processID); 
+                }
+            }
+        }
+    }
+
+    return CallNextHookEx(NULL, nCode, wParam, lParam);
+}
+`
+
+Modified Code (My Version):
+`// global keyboard hook
+LRESULT CALLBACK LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam)
+{
+    if (nCode == HC_ACTION && hookEnabled)
+    {
+        if ((GetAsyncKeyState(VK_F5) & 0x8000) &&                                           // F5
+            (GetAsyncKeyState(VK_MENU) & 0x8000) &&                                         // Alt
+            ((GetAsyncKeyState(VK_LWIN) & 0x8000) || (GetAsyncKeyState(VK_RWIN) & 0x8000))) // Windows key (either left or right)
+        {
+            DWORD processID = GetProcessIdOfActiveWindow();
+            if (processID != 0)
+            {
+                KillProcess(processID);
+            }
+        }
+    }
+
+    return CallNextHookEx(NULL, nCode, wParam, lParam);
+}
+`
+
 
 ## Purpose
 Some programs and games are annoying to close once opened. Some games I play don't work with Alt+F4, and I am too lazy to go back through tons of menus to exit a game. There are also some apps that have long splash screens, so if you accidentally open one of them, you have to either wait to close it, or use Task Manager.
